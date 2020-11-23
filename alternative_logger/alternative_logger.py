@@ -1,7 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
-# from rcl_interfaces.msg import ParameterEvent
+from marker_msgs.msg import *
 
 class Topic_exaple():
     def __init__(self, topic_name, type):
@@ -18,16 +17,8 @@ class alternative_logger(Node):
 
         print(self.list_topics)
         # импортируем типы сообщений для всех существующих топиков !Функция работает только для конструкции "пакет".msg!
-        for i in self.list_topics:
-            list_type = i[1][0]
-            index_slash_first = list_type.index('/')
-            type_name = list_type[index_slash_first + 5:]
-            # print("from " + i[1][0][:index_slash_first] + ".msg import " + type_name)
-            # exec("from " + i[1][0][:index_slash_first] + ".msg import " + type_name)
-            print("import " + i[1][0][:index_slash_first])
-            map(import, i[1][0][:index_slash_first])
-            print(exec(type_name))
-            # print(ParameterEvent)
+
+
 
 def main():
     rclpy.init()
