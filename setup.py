@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'logger = alternative_logger.alternative_logger:main' 
+            'logger = alternative_logger.alternative_logger:main',
+            'subscriber_test = alternative_logger.simple_subscriber:main'
         ],
     },
 )
