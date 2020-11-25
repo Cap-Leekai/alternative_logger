@@ -12,6 +12,16 @@ class Topic_example(Node):
         self.topic_name = topic_name
         self.type = type
         print("topic %s init witch type %s" % (self.topic_name, self.type))
+        self.topic_name_copy = self.topic_name
+        # print("topic_name: ", self.topic_name)
+        self.topic_name_copy = self.topic_name_copy.replace('/', '_')
+        # print("as", self.topic_name_copy)
+
+    def write_file(self, data, file_name):
+        file = open('{0}.txt'.format(file_name), 'a')
+        file.write('\n{0}'.format("<========================================================>"))
+        file.write('\n{0}'.format(data))
+        file.close()
 
     def topic_cb(self, msg):
         """
@@ -20,6 +30,7 @@ class Topic_example(Node):
         cb. is writing msg to file
         """
         pass
+        self.write_file(msg, self.topic_name_copy)
         # print(msg)
         # self.get_logger().log(msg, Lo)
 
