@@ -1,3 +1,4 @@
+#coding=utf8
 import rclpy
 import time
 
@@ -49,15 +50,27 @@ class alternative_logger(Node):
         self.node_name = node_name
         super().__init__(self.node_name)
         self.get_logger().info("init node with name: %s" % self.node_name)
-        staric_time = time.localtime(time.time())
+        static_time = time.localtime(time.time())
 
-        str_time_for_name_file = str(staric_time.tm_mday) + "." + str(staric_time.tm_mon) + "." + str(staric_time.tm_year) + "-" + str(staric_time.tm_hour) + ":" + str(staric_time.tm_min) + ":" + str(staric_time.tm_sec)
+        str_time_for_name_file = str(static_time.tm_mday) + "." + str(static_time.tm_mon) + "." + str(static_time.tm_year) + "-" + str(static_time.tm_hour) + ":" + str(static_time.tm_min) + ":" + str(static_time.tm_sec)
 
         print("Time: " + str_time_for_name_file)
 
         #initing topic examples
         topic1 = Topic_example("/rtp_%s/local_nav" % rtp_id, LocalNav, str_time_for_name_file)
         topic2 = Topic_example("/rtp_%s/imu" % rtp_id, Imu, str_time_for_name_file)
+
+
+        """
+        concept:
+        # Вместо инициализации топиков через кучу строк лучше будет сделать цикл for, 
+        который будет перебирать список топиков и типов сообщений, для каждого топика соответственно, и уже в этом цикле делать создание сабскрайбера.
+        Это позволит сделать инициализацию сабскрайберов динамическим и тогда программа будет подписываться на столько топиков, сколько указано в списке.
+        
+        for topic_and_type in topics_list:
+            create subscriptions for topic_and_type
+        
+        """
 
         #initing subscriptions
         self.sub1 = self.create_subscription(topic1.type, topic1.topic_name, topic1.topic_cb, qos_profile_sensor_data)
