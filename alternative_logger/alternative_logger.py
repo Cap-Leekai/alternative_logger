@@ -25,12 +25,9 @@ class Topic_example(Node):
         # print("as", self.topic_name_copy)
 
     def _write_file(self, data, file_name, time_msg):
-
         if not os.path.isdir(str(self.static_data_time)):
             os.mkdir(str(self.static_data_time))
-
         # print(os.getcwd() + "/" + str(self.static_data_time))
-
         file = open('{0}/{1}.txt'.format(os.getcwd() + "/" + str(self.static_data_time), self.static_data_time + file_name), 'a')
         file.write('\n{0}'.format("<--" + time_msg + "-->"))
         file.write('\n{0}'.format(data))
@@ -48,7 +45,7 @@ class Topic_example(Node):
             dynamic_time.tm_year) + "-" + str(dynamic_time.tm_hour) + ":" + str(dynamic_time.tm_min) + ":" + str(
             dynamic_time.tm_sec)
 
-        # print(dir(msg))
+        print(dir(msg))
 
         self._write_file(msg, self._topic_name_copy, dynamic_str_time_for_msg)
 
@@ -58,21 +55,18 @@ class alternative_logger(Node):
         self.node_name = node_name
         super().__init__(self.node_name)
         self.get_logger().info("init node with name: %s" % self.node_name)
+
         static_time = time.localtime(time.time())
-
         str_time_for_name_file = str(static_time.tm_mday) + "." + str(static_time.tm_mon) + "." + str(static_time.tm_year) + "-" + str(static_time.tm_hour) + ":" + str(static_time.tm_min) + ":" + str(static_time.tm_sec)
-
         print("Time: " + str_time_for_name_file)
 
         # получаем список существующих топиков и их типов
         self.list_topics = self.get_topic_names_and_types()
-        # print(self.list_topics)
 
         # creating topic objects
         topic_objects_list = []
         for topic in self.list_topics:
             topic_objects_list.append(Topic_example(topic[0], utilities.get_message(topic[1][0]), str_time_for_name_file))  # utilities.get_message(topic[1][0]): позволяет импортировать сообщение в код получая на вход его строковое название
-
         # print(topic_list)
 
         #initing subscriptions
