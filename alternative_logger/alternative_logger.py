@@ -5,13 +5,10 @@ import os
 import pickle
 import ruamel.yaml as yaml
 
-from marker_msgs.msg import _euler
-
 from ament_index_python.packages import get_package_share_directory
 from rosidl_runtime_py import utilities
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
-
 
 writing_txt = True
 
@@ -90,14 +87,6 @@ class alternative_logger(Node):
         time.sleep(0.2)
         # получаем список существующих топиков и их типов
         self.list_topics = self.get_topic_names_and_types()
-
-        sensor_msgs/msg/Imu
-
-        geometry_msgs/msg/Euler
-
-        geometry_msgs/msg/Euler
-
-
 
         # creating topic objects
         topic_objects_list = []
