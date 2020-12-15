@@ -1,0 +1,2 @@
+1608017983.9006674:{"&'_fields_and_field_types": {'state': 'octet'}, "&'_state": b'\x00', "&'get_fields_and_field_types": <bound method PlanningNodeState.get_fields_and_field_types of <class 'marker_msgs.msg._planning_node_state.PlanningNodeState'>>, "&'state": b'\x00'}
+1608017984.8907702:{"&'_fields_and_field_types": {'state': 'octet'}, "&'_state": b'\x00', "&'get_fields_and_field_types": <bound method PlanningNodeState.get_fields_and_field_types of <class 'marker_msgs.msg._planning_node_state.PlanningNodeState'>>, "&'state": b'\x00'}

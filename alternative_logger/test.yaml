@@ -1,0 +1,27 @@
+'1608017983.7628753':
+  _angular_velocity_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  _fields_and_field_types: "{'header': 'std_msgs/Header', 'orientation': 'geometry_msgs/Quaternion',\
+    \ 'orientation_covariance': 'double[9]', 'angular_velocity': 'geometry_msgs/Vector3',\
+    \ 'angular_velocity_covariance': 'double[9]', 'linear_acceleration': 'geometry_msgs/Vector3',\
+    \ 'linear_acceleration_covariance': 'double[9]'}"
+  _header: std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1606141136, nanosec=789865728),
+    frame_id='rtp_1/base_link')
+  _linear_acceleration: geometry_msgs.msg.Vector3 (x=-0.0129251107573509, y=0.11728136241436,
+    z=-1.89159180763454e-07)
+  _linear_acceleration_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  _orientation: geometry_msgs.msg.Quaternion(x=0.00172800803557038, y=-0.00155918998643756,
+    z=-0.744997203350067, w=-0.667063653469086)
+  _orientation_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  angular_velocity: geometry_msgs.msg.Vector3(x=0.000152768116095103, y=3.67281318176538e-05,
+    z=-0.0001353260158794)
+  angular_velocity_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  get_fields_and_field_types: <bound method Imu.get_fields_and_field_types of <class
+    'sensor_msgs.msg._imu.Imu'>>
+  header: std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1606141136, nanosec=789865728),
+    frame_id='rtp_1/base_link')
+  linear_acceleration: geometry_msgs.msg.Vector3(x=-0.0129251107573509, y=0.11728136241436,
+    z=-1.89159180763454e-07)
+  linear_acceleration_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+  orientation: geometry_msgs.msg.Quaternion(x=0.00172800803557038, y=-0.00155918998643756,
+    z=-0.744997203350067, w=-0.667063653469086)
+  orientation_covariance: array([0., 0., 0., 0., 0., 0., 0., 0., 0.])

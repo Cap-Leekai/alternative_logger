@@ -5,6 +5,8 @@ import os
 import pickle
 import ruamel.yaml as yaml
 
+from marker_msgs.msg import _euler
+
 from ament_index_python.packages import get_package_share_directory
 from rosidl_runtime_py import utilities
 from rclpy.node import Node
@@ -25,7 +27,6 @@ class Topic_example(Node):
         self._topic_name_copy = self._topic_name_copy.replace('/', '_')
 
     def _write_file(self, data, file_name, time_msg):
-<<<<<<< HEAD
         folder_name = str(self.static_data_time) + "_yaml"
         if not os.path.isdir(folder_name):
             os.mkdir(folder_name)
@@ -41,7 +42,7 @@ class Topic_example(Node):
         for n in cleen_dir_attr:
             attr = getattr(data, n)
             # print(attr)
-            dict_attrs.update({'%s' % n: attr})
+            dict_attrs.update({'&\'%s' % n: attr})
 
         if writing_txt:
             print(time.time(), dict_attrs)
@@ -59,15 +60,6 @@ class Topic_example(Node):
         # file.write('\n{0}'.format(data))
         # file.close()
         #=#
-=======
-        if not os.path.isdir(str(self.static_data_time)):
-            os.mkdir(str(self.static_data_time))
-        # print(os.getcwd() + "/" + str(self.static_data_time))
-        file = open('{0}/{1}.txt'.format(os.getcwd() + "/" + str(self.static_data_time), self.static_data_time + file_name), 'a')
-        file.write('\n{0}'.format("<--" + time_msg + "-->"))
-        file.write('\n{0}'.format(data))
-        file.close()
->>>>>>> fe23fe2bdf2f250ea40a811d1667a0640f7d4443
 
     def _topic_cb(self, msg):
         """
@@ -81,13 +73,8 @@ class Topic_example(Node):
             dynamic_time.tm_year) + "-" + str(dynamic_time.tm_hour) + ":" + str(dynamic_time.tm_min) + ":" + str(
             dynamic_time.tm_sec)
 
-<<<<<<< HEAD
-        self._write_file(msg, self._topic_name_copy, time.time())
-=======
-        print(dir(msg))
 
-        self._write_file(msg, self._topic_name_copy, dynamic_str_time_for_msg)
->>>>>>> fe23fe2bdf2f250ea40a811d1667a0640f7d4443
+        self._write_file(msg, self._topic_name_copy, time.time())
 
 
 class alternative_logger(Node):
@@ -103,10 +90,14 @@ class alternative_logger(Node):
         time.sleep(0.2)
         # получаем список существующих топиков и их типов
         self.list_topics = self.get_topic_names_and_types()
-<<<<<<< HEAD
-        print(self.list_topics)
-=======
->>>>>>> fe23fe2bdf2f250ea40a811d1667a0640f7d4443
+
+        sensor_msgs/msg/Imu
+
+        geometry_msgs/msg/Euler
+
+        geometry_msgs/msg/Euler
+
+
 
         # creating topic objects
         topic_objects_list = []
